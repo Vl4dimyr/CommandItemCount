@@ -2,17 +2,17 @@
 
 ## Description
 
-This mod shows the current item counts in the item selection dialog of the command artifact.
+This mod shows the current item counts in the item selection dialog of the [Artifact of Command](https://riskofrain2.gamepedia.com/Artifacts) and the [Scrapper](https://riskofrain2.gamepedia.com/Scrapper). The equipment selection dialog remains unchanged!
 
-The equipment selection dialog remains unchanged!
+> You need to use the [Artifact of Command](https://riskofrain2.gamepedia.com/Artifacts) in your run or use the [Scrapper](https://riskofrain2.gamepedia.com/Scrapper) for this mod to work!
 
-You need to use the "Artifact of Command" in your run for this mod to work!
-
-> In case you are new to the game click [here (wiki)](https://riskofrain2.gamepedia.com/Artifacts) or [here (wiki)](https://riskofrain.fandom.com/wiki/Artifacts(RoR2)) or - beware: spoilers - [here (YouTube)](https://www.youtube.com/watch?v=B8yWtmXcmw0)
-
-## Screenshot
+## Screenshots
 
 ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/sc_white.png)
+
+![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/sc_green.png)
+
+![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/sc_scrap.png)
 
 ## Manual Install
 
