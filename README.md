@@ -8,9 +8,9 @@ This mod shows the current item counts in the item selection dialog of the [Arti
 
 ## Screenshots
 
-![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/sc_white.png)
+![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_white.png)
 
-![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/sc_scrap.png)
+![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_scrap.png)
 
 ## Manual Install
 
@@ -18,6 +18,10 @@ This mod shows the current item counts in the item selection dialog of the [Arti
 - Download the latest CommandItemCount_x.y.z.zip [here](https://thunderstore.io/package/Vl4dimyr/CommandItemCount/)
 - Extract and move the CommandItemCount.dll into the \BepInEx\plugins folder
 
+## Changelog
+
+The [Changelog](https://github.com/Vl4dimyr/CommandItemCount/blob/master/CHANGELOG.md) can be found on GitHub.
+
 ## Bugs/Feedback
 
-For bugs or feedback please use [GitHub Issues](https://github.com/Vl4dimyr/CommandItemCount/issues)
+For bugs or feedback please use [GitHub Issues](https://github.com/Vl4dimyr/CommandItemCount/issues).
