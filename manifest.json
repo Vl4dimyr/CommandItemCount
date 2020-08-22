@@ -1,0 +1,10 @@
+{
+    "name": "CommandItemCount",
+    "version_number": "{VERSION}",
+    "website_url": "https://github.com/Vl4dimyr/CommandItemCount",
+    "description": "This mod shows the current item counts in the item selection dialog of the Artifact of Command and the Scrapper.",
+    "dependencies": [
+        "bbepis-BepInExPack-5.3.1",
+        "tristanmcpherson-R2API-2.5.7"
+    ]
+}
