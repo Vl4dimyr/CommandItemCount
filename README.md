@@ -10,8 +10,6 @@ This mod shows the current item counts in the item selection dialog of the [Arti
 
 ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/sc_white.png)
 
-![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/sc_green.png)
-
 ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/sc_scrap.png)
 
 ## Manual Install
