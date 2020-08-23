@@ -15,15 +15,15 @@ This mod shows the current item counts in the item selection dialog of the [Arti
 ## Manual Install
 
 - Install [BepInEx](https://thunderstore.io/package/bbepis/BepInExPack/) and [R2API](https://thunderstore.io/package/tristanmcpherson/R2API/)
-- Download the latest CommandItemCount_x.y.z.zip [here](https://thunderstore.io/package/Vl4dimyr/CommandItemCount/)
-- Extract and move the CommandItemCount.dll into the \BepInEx\plugins folder
+- Download the latest `CommandItemCount_x.y.z.zip` [here](https://thunderstore.io/package/Vl4dimyr/CommandItemCount/)
+- Extract and move the `CommandItemCount.dll` into the `\BepInEx\plugins` folder
 
 ## Config
 
 The config file (`\BepInEx\config\de.userstorm.commanditemcount.cfg`) will be crated automatically when the mod is loaded.
 You need to restart the game for changes to apply in game.
 
-You can change the size and position of the text and you can decide whether you want the 'x' in front of the number.
+You can change the size and position of the text and decide whether you want the 'x' in front of the number.
 
 ### Options with x
 |        | TopRight | BottomRight | BottomLeft | TopLeft | Center |
