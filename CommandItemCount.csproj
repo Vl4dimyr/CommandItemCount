@@ -259,12 +259,12 @@
     </Reference>
   </ItemGroup>
 
-	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="powershell -executionpolicy remotesigned -File &quot;$(ProjectDir)dev\post_build.ps1&quot; $(TargetDir) $(TargetFileName) $(ProjectDir) $(SolutionName)" />
-	</Target>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="powershell -executionpolicy remotesigned -File &quot;$(ProjectDir)dev\post_build.ps1&quot; $(TargetDir) $(TargetFileName) $(ProjectDir) $(SolutionName)" />
+  </Target>
 
-	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-		<Exec Command="powershell -executionpolicy remotesigned -File &quot;$(ProjectDir)dev\pre_build.ps1&quot; $(ProjectDir) $(SolutionName)" />
-	</Target>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="powershell -executionpolicy remotesigned -File &quot;$(ProjectDir)dev\pre_build.ps1&quot; $(ProjectDir) $(SolutionName)" />
+  </Target>
 
 </Project>
