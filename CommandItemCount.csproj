@@ -259,12 +259,12 @@
     </Reference>
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;%25appdata%25\r2modmanPlus-local\mods\profiles\CommandItemCount\BepInEx\plugins\&quot;&#xD;&#xA;&#xD;&#xA;rmdir /S /Q &quot;$(ProjectDir)out\&quot;&#xD;&#xA;&#xD;&#xA;mkdir &quot;$(ProjectDir)out\&quot;&#xD;&#xA;&#xD;&#xA;copy &quot;$(ProjectDir)images\icon.png&quot; &quot;$(ProjectDir)out\&quot;&#xD;&#xA;copy &quot;$(ProjectDir)README.md&quot; &quot;$(ProjectDir)out\&quot;&#xD;&#xA;copy &quot;$(ProjectDir)manifest.json&quot; &quot;$(ProjectDir)out\&quot;&#xD;&#xA;copy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;$(ProjectDir)out\&quot;&#xD;&#xA;&#xD;&#xA;powershell -Command &quot;(Get-Content '$(ProjectDir)out\manifest.json') -replace '{VERSION}', (Get-Content '$(ProjectDir)VERSION') | Out-File -encoding UTF8 '$(ProjectDir)out\manifest.json'&quot;&#xD;&#xA;&#xD;&#xA;powershell -Command &quot;Compress-Archive -Path '$(ProjectDir)out\*' -DestinationPath '$(ProjectDir)out\$(SolutionName)_VERSION.zip'&quot;&#xD;&#xA;&#xD;&#xA;powershell -Command &quot;(Get-Content '$(ProjectDir)VERSION') | Rename-Item -Path '$(ProjectDir)out\$(SolutionName)_VERSION.zip' -NewName {'$(SolutionName)_' + $_ + '.zip'}&quot;&#xD;&#xA;&#xD;&#xA;powershell -Command &quot;(Get-Content '$(ProjectDir)CommandItemCountPlugin.cs') -replace (Get-Content '$(ProjectDir)VERSION'), '{VERSION}' | Out-File -encoding UTF8 '$(ProjectDir)CommandItemCountPlugin.cs'&quot;&#xD;&#xA;" />
-  </Target>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="powershell -executionpolicy remotesigned -File &quot;$(ProjectDir)dev\post_build.ps1&quot; $(TargetDir) $(TargetFileName) $(ProjectDir) $(SolutionName)" />
+	</Target>
 
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="powershell -Command &quot;(Get-Content '$(ProjectDir)CommandItemCountPlugin.cs') -replace '{VERSION}', (Get-Content '$(ProjectDir)VERSION') | Out-File -encoding UTF8 '$(ProjectDir)CommandItemCountPlugin.cs'&quot;" />
-  </Target>
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+		<Exec Command="powershell -executionpolicy remotesigned -File &quot;$(ProjectDir)dev\pre_build.ps1&quot; $(ProjectDir) $(SolutionName)" />
+	</Target>
 
 </Project>
