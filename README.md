@@ -12,12 +12,6 @@ This mod shows the current item counts in the item selection dialog of the [Arti
 
 ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_scrap.jpg)
 
-## Manual Install
-
-- Install [BepInEx](https://thunderstore.io/package/bbepis/BepInExPack/) and [R2API](https://thunderstore.io/package/tristanmcpherson/R2API/)
-- Download the latest `CommandItemCount_x.y.z.zip` [here](https://thunderstore.io/package/Vl4dimyr/CommandItemCount/)
-- Extract and move the `CommandItemCount.dll` into the `\BepInEx\plugins` folder
-
 ## Config
 
 The config file (`\BepInEx\config\de.userstorm.commanditemcount.cfg`) will be crated automatically when the mod is loaded.
@@ -38,6 +32,12 @@ You can change the size and position of the text and decide whether you want the
 | Small  | ![small_top_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/small_top_right.png) | ![small_bottom_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/small_bottom_right.png) | ![small_bottom_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/small_bottom_left.png) | ![small_top_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/small_top_left.png) | ![small_center](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/small_center.png) |
 | Medium | ![medium_top_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/medium_top_right.png) | ![medium_bottom_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/medium_bottom_right.png) | ![medium_bottom_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/medium_bottom_left.png) | ![medium_top_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/medium_top_left.png) | ![medium_center](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/medium_center.png) |
 | Large  | ![large_top_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/large_top_right.png) | ![large_bottom_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/large_bottom_right.png) | ![large_bottom_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/large_bottom_left.png) | ![large_top_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/large_top_left.png) | ![large_center](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/large_center.png) |
+
+## Manual Install
+
+- Install [BepInEx](https://thunderstore.io/package/bbepis/BepInExPack/) and [R2API](https://thunderstore.io/package/tristanmcpherson/R2API/)
+- Download the latest `CommandItemCount_x.y.z.zip` [here](https://thunderstore.io/package/Vl4dimyr/CommandItemCount/)
+- Extract and move the `CommandItemCount.dll` into the `\BepInEx\plugins` folder
 
 ## Changelog
 
