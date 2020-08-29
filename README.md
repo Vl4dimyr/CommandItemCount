@@ -27,7 +27,7 @@ This mod shows the current item counts in the item selection dialog of the [Arti
 The config file (`\BepInEx\config\de.userstorm.commanditemcount.cfg`) will be crated automatically when the mod is loaded.
 You need to restart the game for changes to apply in game.
 
-You can disable/enable tooltips and change the size and position of the text and decide whether you want the 'x' in front of the number.
+You can disable/enable tooltips, change the size and position of the text and decide whether you want the 'x' in front of the number.
 
 ### Options with x
 |        | TopRight&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | BottomRight&nbsp;&nbsp; | BottomLeft&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | TopLeft&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Center&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
