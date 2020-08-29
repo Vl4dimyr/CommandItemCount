@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace CommandItemCount
 {
+    [BepInDependency("ontrigger-ItemStatsMod-1.5.0", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [BepInPlugin("de.userstorm.commanditemcount", "CommandItemCount", "{VERSION}")]
     public class CommandItemCountPlugin : BaseUnityPlugin
@@ -16,6 +17,7 @@ namespace CommandItemCount
         public static ConfigEntry<bool> DisplayX { get; set; }
         public static ConfigEntry<string> NumberPosition { get; set; }
         public static ConfigEntry<string> NumberSize{ get; set; }
+        public static ConfigEntry<bool> EnableTooltip { get; set; }
 
         private TMPro.TextAlignmentOptions GetAlignment()
         {
@@ -121,6 +123,30 @@ namespace CommandItemCount
             rectTransform.anchoredPosition = GetPosition();
         }
 
+        private void CreateTooltip (Transform parent, PickupDef pickupDefinition, int count)
+        {
+            ItemDef itemDefinition = ItemCatalog.GetItemDef(pickupDefinition.itemIndex);
+            EquipmentDef equipmentDef = EquipmentCatalog.GetEquipmentDef(pickupDefinition.equipmentIndex);
+            bool isItem = itemDefinition != null;
+
+            TooltipContent content = new TooltipContent();
+
+            content.titleColor = pickupDefinition.darkColor;
+            content.titleToken = isItem ? itemDefinition.nameToken : equipmentDef.nameToken;
+            content.bodyToken = isItem ? itemDefinition.descriptionToken : equipmentDef.descriptionToken;
+
+            if (isItem && ItemStatsMod.enabled)
+            {
+                string stats = ItemStatsMod.GetStats(itemDefinition.itemIndex, count);
+
+                content.overrideBodyText = $"{Language.GetString(content.bodyToken)}\n\n{stats}";
+            }
+
+            TooltipProvider tooltipProvider = parent.gameObject.AddComponent<TooltipProvider>();
+
+            tooltipProvider.SetContent(content);
+        }
+
         private void SetPickupOptionsHook(
             On.RoR2.UI.PickupPickerPanel.orig_SetPickupOptions orig,
             PickupPickerPanel self,
@@ -129,11 +155,7 @@ namespace CommandItemCount
         {
             orig.Invoke(self, options);
 
-            // if no options or equipment return
-            if (
-                options.Length < 1 ||
-                !PickupCatalog.GetPickupDef(options[0].pickupIndex).equipmentIndex.Equals(EquipmentIndex.None)
-            )
+            if (options.Length < 1)
             {
                 return;
             }
@@ -146,10 +168,19 @@ namespace CommandItemCount
             for (int i = 0; i < options.Length; i++)
             {
                 Transform parent = elements[i].transform;
-                ItemIndex itemIndex = PickupCatalog.GetPickupDef(options[i].pickupIndex).itemIndex;
-                int itemCount = inventory.GetItemCount(itemIndex);
+                PickupDef pickupDefinition = PickupCatalog.GetPickupDef(options[i].pickupIndex);
+                ItemIndex itemIndex = pickupDefinition.itemIndex;
+                int itemCount = !itemIndex.Equals(ItemIndex.None) ? inventory.GetItemCount(itemIndex) : 0;
 
-                CreateNumberLabel(parent, itemIndex, itemCount);
+                if (pickupDefinition.equipmentIndex.Equals(EquipmentIndex.None))
+                {
+                    CreateNumberLabel(parent, itemIndex, itemCount);
+                }
+
+                if (EnableTooltip.Value)
+                {
+                    CreateTooltip(parent, pickupDefinition, itemCount);
+                }
             }
         }
 
@@ -176,11 +207,18 @@ namespace CommandItemCount
                 "Number Position Options: TopRight, BottomRight, BottomLeft, TopLeft, Center"
             );
 
-            NumberSize= Config.Bind<string>(
+            NumberSize = Config.Bind<string>(
                 "Settings",
                 "NumberSize",
                 "Small",
                 "Number Size Options: Small, Medium, Large"
+            );
+
+            EnableTooltip = Config.Bind<bool>(
+                "Settings",
+                "EnableTooltip",
+                true,
+                "Show Item/Equipment Tooltip"
             );
         }
 

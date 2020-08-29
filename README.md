@@ -8,16 +8,26 @@ This mod shows the current item counts in the item selection dialog of the [Arti
 
 ## Screenshots
 
-![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_white.jpg)
+<details>
+  <summary>Screenshots</summary>
 
-![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_scrap.jpg)
+  ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_white.jpg)
+
+  ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_scrap.jpg)
+
+  ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_tooltip.jpg)
+
+  ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_tooltip_with_stats.jpg)
+
+  > Works with [ItemStatsMod](https://thunderstore.io/package/ontrigger/ItemStatsMod/)
+</details>
 
 ## Config
 
 The config file (`\BepInEx\config\de.userstorm.commanditemcount.cfg`) will be crated automatically when the mod is loaded.
 You need to restart the game for changes to apply in game.
 
-You can change the size and position of the text and decide whether you want the 'x' in front of the number.
+You can disable/enable tooltips, change the size and position of the text and decide whether you want the 'x' in front of the number.
 
 ### Options with x
 |        | TopRight&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | BottomRight&nbsp;&nbsp; | BottomLeft&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | TopLeft&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Center&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
@@ -33,11 +43,48 @@ You can change the size and position of the text and decide whether you want the
 | Medium | ![medium_top_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/medium_top_right.png) | ![medium_bottom_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/medium_bottom_right.png) | ![medium_bottom_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/medium_bottom_left.png) | ![medium_top_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/medium_top_left.png) | ![medium_center](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/medium_center.png) |
 | Large  | ![large_top_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/large_top_right.png) | ![large_bottom_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/large_bottom_right.png) | ![large_bottom_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/large_bottom_left.png) | ![large_top_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/large_top_left.png) | ![large_center](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/large_center.png) |
 
+### Example config
+
+The example config keeps tooltips enabled, disables `0` and `x` and uses `Large` numbers in the `Center` of the icon.
+
+```ini
+## Settings file was created by plugin CommandItemCount v1.2.0
+## Plugin GUID: de.userstorm.commanditemcount
+
+[Settings]
+
+## Display '0' or 'x0' if item count is 0
+# Setting type: Boolean
+# Default value: true
+Display0 = false
+
+## Display the 'x' in front of the number
+# Setting type: Boolean
+# Default value: true
+DisplayX = false
+
+## Number Position Options: TopRight, BottomRight, BottomLeft, TopLeft, Center
+# Setting type: String
+# Default value: TopRight
+NumberPosition = Center
+
+## Number Size Options: Small, Medium, Large
+# Setting type: String
+# Default value: Small
+NumberSize = Large
+
+## Show Item/Equipment Tooltip
+# Setting type: Boolean
+# Default value: true
+EnableTooltip = true
+```
+
 ## Manual Install
 
 - Install [BepInEx](https://thunderstore.io/package/bbepis/BepInExPack/) and [R2API](https://thunderstore.io/package/tristanmcpherson/R2API/)
 - Download the latest `CommandItemCount_x.y.z.zip` [here](https://thunderstore.io/package/Vl4dimyr/CommandItemCount/)
 - Extract and move the `CommandItemCount.dll` into the `\BepInEx\plugins` folder
+- (optional) Install [ItemStatsMod](https://thunderstore.io/package/ontrigger/ItemStatsMod/)
 
 ## Changelog
 

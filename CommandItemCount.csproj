@@ -26,6 +26,9 @@
     <Reference Include="BepInEx.Preloader">
       <HintPath>..\..\..\AppData\Roaming\r2modmanPlus-local\mods\profiles\CommandItemCount\BepInEx\core\BepInEx.Preloader.dll</HintPath>
     </Reference>
+    <Reference Include="ItemStats">
+      <HintPath>..\..\..\AppData\Roaming\r2modmanPlus-local\mods\profiles\CommandItemCount\BepInEx\plugins\ontrigger-ItemStatsMod\ItemStats.dll</HintPath>
+    </Reference>
     <Reference Include="MMHOOK_Assembly-CSharp">
       <HintPath>..\..\..\AppData\Roaming\r2modmanPlus-local\mods\profiles\CommandItemCount\BepInEx\plugins\tristanmcpherson-R2API\R2API\MMHOOK_Assembly-CSharp.dll</HintPath>
     </Reference>
