@@ -8,19 +8,15 @@ This mod shows the current item counts in the item selection dialog of the [Arti
 
 ## Screenshots
 
-<details>
-  <summary>Screenshots</summary>
+![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_white.jpg)
 
-  ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_white.jpg)
+![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_scrap.jpg)
 
-  ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_scrap.jpg)
+![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_tooltip.jpg)
 
-  ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_tooltip.jpg)
+![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_tooltip_with_stats.jpg)
 
-  ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_tooltip_with_stats.jpg)
-
-  > Works with [ItemStatsMod](https://thunderstore.io/package/ontrigger/ItemStatsMod/)
-</details>
+> Works with [ItemStatsMod](https://thunderstore.io/package/ontrigger/ItemStatsMod/)
 
 ## Config
 
