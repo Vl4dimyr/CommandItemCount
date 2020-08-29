@@ -8,19 +8,15 @@ This mod shows the current item counts in the item selection dialog of the [Arti
 
 ## Screenshots
 
-<details>
-  <summary>Screenshots</summary>
+![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_white.jpg)
 
-  ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_white.jpg)
+![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_scrap.jpg)
 
-  ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_scrap.jpg)
+![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_tooltip.jpg)
 
-  ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_tooltip.jpg)
+![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_tooltip_with_stats.jpg)
 
-  ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_tooltip_with_stats.jpg)
-
-  > Works with [ItemStatsMod](https://thunderstore.io/package/ontrigger/ItemStatsMod/)
-</details>
+> Works with [ItemStatsMod](https://thunderstore.io/package/ontrigger/ItemStatsMod/)
 
 ## Config
 
@@ -30,14 +26,14 @@ You need to restart the game for changes to apply in game.
 You can disable/enable tooltips, change the size and position of the text and decide whether you want the 'x' in front of the number.
 
 ### Options with x
-|        | TopRight&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | BottomRight&nbsp;&nbsp; | BottomLeft&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | TopLeft&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Center&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+|        | TopRight | BottomRight | BottomLeft | TopLeft | Center |
 |--------|----------|-------------|------------|---------|--------|
 | Small  | ![x_small_top_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/x_small_top_right.png) | ![x_small_bottom_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/x_small_bottom_right.png) | ![x_small_bottom_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/x_small_bottom_left.png) | ![x_small_top_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/x_small_top_left.png) | ![x_small_center](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/x_small_center.png) |
 | Medium | ![x_medium_top_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/x_medium_top_right.png) | ![x_medium_bottom_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/x_medium_bottom_right.png) | ![x_medium_bottom_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/x_medium_bottom_left.png) | ![x_medium_top_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/x_medium_top_left.png) | ![x_medium_center](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/x_medium_center.png) |
 | Large  | ![x_large_top_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/x_large_top_right.png) | ![x_large_bottom_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/x_large_bottom_right.png) | ![x_large_bottom_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/x_large_bottom_left.png) | ![x_large_top_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/x_large_top_left.png) | ![x_large_center](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/x_large_center.png) |
 
 ### Options without x
-|        | TopRight&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | BottomRight&nbsp;&nbsp; | BottomLeft&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | TopLeft&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Center&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+|        | TopRight | BottomRight | BottomLeft | TopLeft | Center |
 |--------|----------|-------------|------------|---------|--------|
 | Small  | ![small_top_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/small_top_right.png) | ![small_bottom_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/small_bottom_right.png) | ![small_bottom_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/small_bottom_left.png) | ![small_top_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/small_top_left.png) | ![small_center](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/small_center.png) |
 | Medium | ![medium_top_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/medium_top_right.png) | ![medium_bottom_right](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/medium_bottom_right.png) | ![medium_bottom_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/medium_bottom_left.png) | ![medium_top_left](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/medium_top_left.png) | ![medium_center](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/options/medium_center.png) |
