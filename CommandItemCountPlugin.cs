@@ -18,6 +18,10 @@ namespace CommandItemCount
         public static ConfigEntry<string> NumberPosition { get; set; }
         public static ConfigEntry<string> NumberSize{ get; set; }
         public static ConfigEntry<bool> EnableTooltip { get; set; }
+        public static ConfigEntry<bool> EnableCloseDialogWithEscape { get; set; }
+        public static ConfigEntry<bool> EnableCloseDialogWithWASD { get; set; }
+        public static ConfigEntry<bool> EnableCloseDialogWithSpace { get; set; }
+        public static ConfigEntry<bool> EnableCloseDialogWithShift { get; set; }
 
         private TMPro.TextAlignmentOptions GetAlignment()
         {
@@ -184,6 +188,35 @@ namespace CommandItemCount
             }
         }
 
+        private void HandleClosePickupPickerPanel()
+        {
+            if (
+                (EnableCloseDialogWithEscape.Value && Input.GetKeyDown(KeyCode.Escape)) ||
+                (EnableCloseDialogWithWASD.Value && Input.GetKeyDown(KeyCode.W)) ||
+                (EnableCloseDialogWithWASD.Value && Input.GetKeyDown(KeyCode.A)) ||
+                (EnableCloseDialogWithWASD.Value && Input.GetKeyDown(KeyCode.S)) ||
+                (EnableCloseDialogWithWASD.Value && Input.GetKeyDown(KeyCode.D)) ||
+                (EnableCloseDialogWithSpace.Value && Input.GetKeyDown(KeyCode.Space)) ||
+                (EnableCloseDialogWithShift.Value && Input.GetKeyDown(KeyCode.LeftShift))
+            )
+            {
+                PickupPickerPanel[] panels = FindObjectsOfType(typeof(PickupPickerPanel)) as PickupPickerPanel[];
+
+                if (panels.Length > 0)
+                {
+                    foreach (PickupPickerPanel panel in panels)
+                    {
+                        Destroy(panel.gameObject);
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.Escape))
+                    {
+                        Console.instance.SubmitCmd(null, "pause", false);
+                    }
+                }
+            }
+        }
+
         private void InitConfig()
         {
             Display0 = Config.Bind<bool>(
@@ -220,6 +253,34 @@ namespace CommandItemCount
                 true,
                 "Show Item/Equipment Tooltip"
             );
+
+            EnableCloseDialogWithEscape = Config.Bind<bool>(
+                "Settings",
+                "EnableCloseDialogWithEscape",
+                true,
+                "Closes the item picker dialog when Esc is pressed"
+            );
+
+            EnableCloseDialogWithWASD = Config.Bind<bool>(
+                "Settings",
+                "EnableCloseDialogWithWASD",
+                true,
+                "Closes the item picker dialog when W, A, S or D is pressed"
+            );
+
+            EnableCloseDialogWithSpace = Config.Bind<bool>(
+                "Settings",
+                "EnableCloseDialogWithSpace",
+                true,
+                "Closes the item picker dialog when Space is pressed"
+            );
+
+            EnableCloseDialogWithShift = Config.Bind<bool>(
+                "Settings",
+                "EnableCloseDialogWithShift",
+                true,
+                "Closes the item picker dialog when Shift is pressed"
+            );
         }
 
         public void Awake()
@@ -227,6 +288,11 @@ namespace CommandItemCount
             InitConfig();
 
             On.RoR2.UI.PickupPickerPanel.SetPickupOptions += SetPickupOptionsHook;
+        }
+
+        public void Update()
+        {
+            HandleClosePickupPickerPanel();
         }
 
         public void OnDestroy()

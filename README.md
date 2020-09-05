@@ -6,6 +6,14 @@ This mod shows the current item counts in the item selection dialog of the [Arti
 
 > You need to use the [Artifact of Command](https://riskofrain2.gamepedia.com/Artifacts) in your run or use the [Scrapper](https://riskofrain2.gamepedia.com/Scrapper) for this mod to work!
 
+## Features
+
+All features are configurable see "Config" below
+
+* Displays the current item counts
+* Shows tooltips
+* Closes the dialog using `Escape`, `W`, `A`, `S`, `D`, `Space` or `Shift`
+
 ## Screenshots
 
 ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_white.jpg)
@@ -24,6 +32,7 @@ The config file (`\BepInEx\config\de.userstorm.commanditemcount.cfg`) will be cr
 You need to restart the game for changes to apply in game.
 
 You can disable/enable tooltips, change the size and position of the text and decide whether you want the 'x' in front of the number.
+Also you can decide which keys can close the Command/Scrapper dialog.
 
 ### Options with x
 |        | TopRight | BottomRight | BottomLeft | TopLeft | Center |
@@ -42,6 +51,7 @@ You can disable/enable tooltips, change the size and position of the text and de
 ### Example config
 
 The example config keeps tooltips enabled, disables `0` and `x` and uses `Large` numbers in the `Center` of the icon.
+It also leaves all keys enabled for closing the dialog.
 
 ```ini
 ## Settings file was created by plugin CommandItemCount v1.2.0
@@ -73,6 +83,26 @@ NumberSize = Large
 # Setting type: Boolean
 # Default value: true
 EnableTooltip = true
+
+## Closes the item picker dialog when Esc is pressed
+# Setting type: Boolean
+# Default value: true
+EnableCloseDialogWithEscape = true
+
+## Closes the item picker dialog when W, A, S or D is pressed
+# Setting type: Boolean
+# Default value: true
+EnableCloseDialogWithWASD = true
+
+## Closes the item picker dialog when Space is pressed
+# Setting type: Boolean
+# Default value: true
+EnableCloseDialogWithSpace = true
+
+## Closes the item picker dialog when Shift is pressed
+# Setting type: Boolean
+# Default value: true
+EnableCloseDialogWithShift = true
 ```
 
 ## Manual Install
