@@ -1,6 +1,8 @@
-﻿using ItemStats;
-using RoR2;
+﻿using System;
 using System.Runtime.CompilerServices;
+using BepInEx.Bootstrap;
+using ItemStats;
+using RoR2;
 
 namespace CommandItemCount
 {
@@ -14,7 +16,7 @@ namespace CommandItemCount
             {
                 if (_enabled == null)
                 {
-                    _enabled = BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("dev.ontrigger.itemstats");
+                    _enabled = Chainloader.PluginInfos.ContainsKey("dev.ontrigger.itemstats");
                 }
 
                 return (bool)_enabled;
@@ -22,9 +24,16 @@ namespace CommandItemCount
         }
 
         [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-        internal static string GetStats(ItemIndex itemIndex, int itemCount)
+        internal static string GetStats(ItemIndex itemIndex, int itemCount, CharacterMaster master)
         {
-            return ItemStatProvider.ProvideStatsForItem(itemIndex, itemCount);
+            try
+            {
+                return ItemStats.ItemStatsMod.GetStatsForItem(itemIndex, itemCount, new StatContext(master));
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

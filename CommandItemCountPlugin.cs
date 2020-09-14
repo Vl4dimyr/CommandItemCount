@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace CommandItemCount
 {
-    [BepInDependency("ontrigger-ItemStatsMod-1.5.0", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("ontrigger-ItemStatsMod-2.0.0", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [BepInPlugin("de.userstorm.commanditemcount", "CommandItemCount", "{VERSION}")]
     [NetworkCompatibility(CompatibilityLevel.NoNeedForSync, VersionStrictness.DifferentModVersionsAreOk)]
@@ -142,9 +142,14 @@ namespace CommandItemCount
 
             if (isItem && ItemStatsMod.enabled)
             {
-                string stats = ItemStatsMod.GetStats(itemDefinition.itemIndex, count);
+                CharacterMaster master = PlayerCharacterMasterController.instances[0].master;
 
-                content.overrideBodyText = $"{Language.GetString(content.bodyToken)}\n\n{stats}";
+                string stats = ItemStatsMod.GetStats(itemDefinition.itemIndex, count, master);
+
+                if (stats != null)
+                {
+                    content.overrideBodyText = $"{Language.GetString(content.bodyToken)}{stats}";
+                }
             }
 
             TooltipProvider tooltipProvider = parent.gameObject.AddComponent<TooltipProvider>();
