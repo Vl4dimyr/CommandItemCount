@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace CommandItemCount
 {
-    [BepInDependency("ontrigger-ItemStatsMod-2.0.0", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("ontrigger-ItemStatsMod-2.2.1", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [BepInPlugin("de.userstorm.commanditemcount", "CommandItemCount", "{VERSION}")]
     [NetworkCompatibility(CompatibilityLevel.NoNeedForSync, VersionStrictness.DifferentModVersionsAreOk)]
