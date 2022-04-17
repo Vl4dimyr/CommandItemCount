@@ -8,16 +8,20 @@ using UnityEngine;
 
 namespace CommandItemCount
 {
+    public enum Position { TopRight, BottomRight, BottomLeft, TopLeft, Center }
+    public enum Size { Small, Medium, Large }
+
+    [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("ontrigger-ItemStatsMod-2.2.1", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [BepInPlugin("de.userstorm.commanditemcount", "CommandItemCount", "{VERSION}")]
     [NetworkCompatibility(CompatibilityLevel.NoNeedForSync, VersionStrictness.DifferentModVersionsAreOk)]
     public class CommandItemCountPlugin : BaseUnityPlugin
     {
-        public static ConfigEntry<bool> Display0 { get; set; }
-        public static ConfigEntry<bool> DisplayX { get; set; }
-        public static ConfigEntry<string> NumberPosition { get; set; }
-        public static ConfigEntry<string> NumberSize{ get; set; }
+        public static ConfigEntry<bool> Show0 { get; set; }
+        public static ConfigEntry<bool> ShowX { get; set; }
+        public static ConfigEntry<Position> NumberPosition { get; set; }
+        public static ConfigEntry<Size> NumberSize{ get; set; }
         public static ConfigEntry<bool> EnableTooltip { get; set; }
         public static ConfigEntry<bool> EnableCloseDialogWithEscape { get; set; }
         public static ConfigEntry<bool> EnableCloseDialogWithWASD { get; set; }
@@ -28,11 +32,11 @@ namespace CommandItemCount
         {
             switch (NumberPosition.Value)
             {
-                case "TopRight": return TMPro.TextAlignmentOptions.TopRight;
-                case "BottomRight": return TMPro.TextAlignmentOptions.BottomRight;
-                case "BottomLeft": return TMPro.TextAlignmentOptions.BottomLeft;
-                case "TopLeft": return TMPro.TextAlignmentOptions.TopLeft;
-                case "Center": return TMPro.TextAlignmentOptions.Center;
+                case Position.TopRight: return TMPro.TextAlignmentOptions.TopRight;
+                case Position.BottomRight: return TMPro.TextAlignmentOptions.BottomRight;
+                case Position.BottomLeft: return TMPro.TextAlignmentOptions.BottomLeft;
+                case Position.TopLeft: return TMPro.TextAlignmentOptions.TopLeft;
+                case Position.Center: return TMPro.TextAlignmentOptions.Center;
             }
 
             return TMPro.TextAlignmentOptions.TopRight;
@@ -42,34 +46,34 @@ namespace CommandItemCount
         {
             switch (NumberSize.Value)
             {
-                case "Small":
+                case Size.Small:
                     switch (NumberPosition.Value)
                     {
-                        case "TopRight": return new Vector2(-5f, -1.5f);
-                        case "BottomRight": return new Vector2(-5f, 1.5f);
-                        case "BottomLeft": return new Vector2(5f, 1.5f);
-                        case "TopLeft": return new Vector2(5f, -1.5f);
-                        case "Center": return new Vector2(0, 0);
+                        case Position.TopRight: return new Vector2(-5f, -1.5f);
+                        case Position.BottomRight: return new Vector2(-5f, 1.5f);
+                        case Position.BottomLeft: return new Vector2(5f, 1.5f);
+                        case Position.TopLeft: return new Vector2(5f, -1.5f);
+                        case Position.Center: return new Vector2(0, 0);
                     }
                     break;
-                case "Medium":
+                case Size.Medium:
                     switch (NumberPosition.Value)
                     {
-                        case "TopRight": return new Vector2(-5f, 0.5f);
-                        case "BottomRight": return new Vector2(-5f, 0.5f);
-                        case "BottomLeft": return new Vector2(5f, 0.5f);
-                        case "TopLeft": return new Vector2(5f, 0.5f);
-                        case "Center": return new Vector2(0, 0);
+                        case Position.TopRight: return new Vector2(-5f, 0.5f);
+                        case Position.BottomRight: return new Vector2(-5f, 0.5f);
+                        case Position.BottomLeft: return new Vector2(5f, 0.5f);
+                        case Position.TopLeft: return new Vector2(5f, 0.5f);
+                        case Position.Center: return new Vector2(0, 0);
                     }
                     break;
-                case "Large":
+                case Size.Large:
                     switch (NumberPosition.Value)
                     {
-                        case "TopRight": return new Vector2(-5f, 2.5f);
-                        case "BottomRight": return new Vector2(-5f, -2f);
-                        case "BottomLeft": return new Vector2(5f, -2f);
-                        case "TopLeft": return new Vector2(5f, 2.5f);
-                        case "Center": return new Vector2(0, 0);
+                        case Position.TopRight: return new Vector2(-5f, 2.5f);
+                        case Position.BottomRight: return new Vector2(-5f, -2f);
+                        case Position.BottomLeft: return new Vector2(5f, -2f);
+                        case Position.TopLeft: return new Vector2(5f, 2.5f);
+                        case Position.Center: return new Vector2(0, 0);
                     }
                     break;
             }
@@ -81,9 +85,9 @@ namespace CommandItemCount
         {
             switch (NumberSize.Value)
             {
-                case "Small": return 18f;
-                case "Medium": return 30f;
-                case "Large": return 42f;
+                case Size.Small: return 18f;
+                case Size.Medium: return 30f;
+                case Size.Large: return 42f;
             }
 
             return 18f;
@@ -100,7 +104,7 @@ namespace CommandItemCount
                 Destroy(old.gameObject);
             }
 
-            if (!Display0.Value && count == 0)
+            if (!Show0.Value && count == 0)
             {
                 return;
             }
@@ -114,7 +118,7 @@ namespace CommandItemCount
             RectTransform rectTransform = textContainer.AddComponent<RectTransform>();
             HGTextMeshProUGUI hgtextMeshProUGUI = textContainer.AddComponent<HGTextMeshProUGUI>();
 
-            hgtextMeshProUGUI.text = (DisplayX.Value ? "x" : "") + count;
+            hgtextMeshProUGUI.text = (ShowX.Value ? "x" : "") + count;
             hgtextMeshProUGUI.fontSize = GetSize();
             hgtextMeshProUGUI.color = Color.white;
             hgtextMeshProUGUI.alignment = GetAlignment();
@@ -225,32 +229,32 @@ namespace CommandItemCount
 
         private void InitConfig()
         {
-            Display0 = Config.Bind<bool>(
+            Show0 = Config.Bind<bool>(
                 "Settings",
-                "Display0",
+                "Show0",
                 true,
                 "Display '0' or 'x0' if item count is 0"
             );
 
-            DisplayX = Config.Bind<bool>(
+            ShowX = Config.Bind<bool>(
                 "Settings",
-                "DisplayX",
+                "ShowX",
                 true,
                 "Display the 'x' in front of the number"
             );
 
-            NumberPosition = Config.Bind<string>(
+            NumberPosition = Config.Bind<Position>(
                 "Settings",
                 "NumberPosition",
-                "TopRight",
-                "Number Position Options: TopRight, BottomRight, BottomLeft, TopLeft, Center"
+                Position.TopRight,
+                "Number Position"
             );
 
-            NumberSize = Config.Bind<string>(
+            NumberSize = Config.Bind<Size>(
                 "Settings",
                 "NumberSize",
-                "Small",
-                "Number Size Options: Small, Medium, Large"
+                Size.Small,
+                "Number Size"
             );
 
             EnableTooltip = Config.Bind<bool>(
@@ -287,6 +291,22 @@ namespace CommandItemCount
                 true,
                 "Closes the item picker dialog when Shift is pressed"
             );
+
+            if (RiskOfOptionsMod.enabled)
+            {
+                RiskOfOptionsMod.Init(
+                    "This mod shows the current item counts in the item selection dialog of the Artifact of Command and the Scrapper."
+                );
+                RiskOfOptionsMod.AddCheckboxOption(Show0);
+                RiskOfOptionsMod.AddCheckboxOption(ShowX);
+                RiskOfOptionsMod.AddChoiceOption<Position>(NumberPosition);
+                RiskOfOptionsMod.AddChoiceOption<Size>(NumberSize);
+                RiskOfOptionsMod.AddCheckboxOption(EnableTooltip);
+                RiskOfOptionsMod.AddCheckboxOption(EnableCloseDialogWithEscape);
+                RiskOfOptionsMod.AddCheckboxOption(EnableCloseDialogWithWASD);
+                RiskOfOptionsMod.AddCheckboxOption(EnableCloseDialogWithSpace);
+                RiskOfOptionsMod.AddCheckboxOption(EnableCloseDialogWithShift);
+            }
         }
 
         public void Awake()

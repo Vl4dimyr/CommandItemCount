@@ -26,7 +26,13 @@ All features are configurable see "Config" below
 
 > Works with [ItemStatsMod](https://thunderstore.io/package/ontrigger/ItemStatsMod/)
 
-## Config
+### TL;DR
+
+Use [Risk Of Options](https://thunderstore.io/package/Rune580/Risk_Of_Options/) for in-game settings!
+
+![Risk Of Options Screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/risk_of_options.jpg)
+
+### Manual Config
 
 The config file (`\BepInEx\config\de.userstorm.commanditemcount.cfg`) will be crated automatically when the mod is loaded.
 You need to restart the game for changes to apply in game.
@@ -111,6 +117,7 @@ EnableCloseDialogWithShift = true
 - Download the latest `CommandItemCount_x.y.z.zip` [here](https://thunderstore.io/package/Vl4dimyr/CommandItemCount/)
 - Extract and move the `CommandItemCount.dll` into the `\BepInEx\plugins` folder
 - (optional) Install [ItemStatsMod](https://thunderstore.io/package/ontrigger/ItemStatsMod/)
+- (optional) Install [Risk Of Options](https://thunderstore.io/package/Rune580/Risk_Of_Options/)
 
 ## Changelog
 
