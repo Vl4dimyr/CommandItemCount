@@ -62,7 +62,7 @@ The example config keeps tooltips enabled, disables `0` and `x` and uses `Large`
 It also leaves all keys enabled for closing the dialog.
 
 ```ini
-## Settings file was created by plugin CommandItemCount v1.2.0
+## Settings file was created by plugin CommandItemCount v1.4.0
 ## Plugin GUID: de.userstorm.commanditemcount
 
 [Settings]
@@ -70,21 +70,23 @@ It also leaves all keys enabled for closing the dialog.
 ## Display '0' or 'x0' if item count is 0
 # Setting type: Boolean
 # Default value: true
-Display0 = false
+Show0 = false
 
 ## Display the 'x' in front of the number
 # Setting type: Boolean
 # Default value: true
-DisplayX = false
+ShowX = false
 
-## Number Position Options: TopRight, BottomRight, BottomLeft, TopLeft, Center
-# Setting type: String
+## Number Position
+# Setting type: Position
 # Default value: TopRight
+# Acceptable values: TopRight, BottomRight, BottomLeft, TopLeft, Center
 NumberPosition = Center
 
-## Number Size Options: Small, Medium, Large
-# Setting type: String
+## Number Size
+# Setting type: Size
 # Default value: Small
+# Acceptable values: Small, Medium, Large
 NumberSize = Large
 
 ## Show Item/Equipment Tooltip
