@@ -26,6 +26,8 @@ All features are configurable see "Config" below
 
 > Works with [ItemStatsMod](https://thunderstore.io/package/ontrigger/ItemStatsMod/)
 
+## Config
+
 ### TL;DR
 
 Use [Risk Of Options](https://thunderstore.io/package/Rune580/Risk_Of_Options/) for in-game settings!
