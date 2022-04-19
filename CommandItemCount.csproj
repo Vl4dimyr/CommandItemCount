@@ -38,6 +38,7 @@
       UnityEngine.InputLegacyModule;
       UnityEngine.UI;
       UnityEngine.UIModule;
+      UnityEngine.ImageConversionModule;
       Unity.TextMeshPro;
       com.unity.multiplayer-hlapi.Runtime;
       ItemStats;
@@ -45,6 +46,7 @@
     ">
       <Private>False</Private>
     </Reference>
+    <EmbeddedResource Include="images/icon.png" LogicalName="icon" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
