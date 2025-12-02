@@ -24,8 +24,6 @@ All features are configurable see "Config" below
 
 ![screenshot](https://raw.githubusercontent.com/Vl4dimyr/CommandItemCount/master/images/sc_tooltip_with_stats.jpg)
 
-> Works with [ItemStatsMod](https://thunderstore.io/package/ontrigger/ItemStatsMod/)
-
 ## Config
 
 ### TL;DR
@@ -120,7 +118,6 @@ EnableCloseDialogWithShift = true
 - Install [BepInEx](https://thunderstore.io/package/bbepis/BepInExPack/) and [R2API](https://thunderstore.io/package/tristanmcpherson/R2API/)
 - Download the latest `CommandItemCount_x.y.z.zip` [here](https://thunderstore.io/package/Vl4dimyr/CommandItemCount/)
 - Extract and move the `CommandItemCount.dll` into the `\BepInEx\plugins` folder
-- (optional) Install [ItemStatsMod](https://thunderstore.io/package/ontrigger/ItemStatsMod/)
 - (optional) Install [Risk Of Options](https://thunderstore.io/package/Rune580/Risk_Of_Options/)
 
 ## Changelog
@@ -130,9 +127,3 @@ The [Changelog](https://github.com/Vl4dimyr/CommandItemCount/blob/master/CHANGEL
 ## Bugs/Feedback
 
 For bugs or feedback please use [GitHub Issues](https://github.com/Vl4dimyr/CommandItemCount/issues).
-
-## Help me out
-
-[![Patreon](https://cdn.iconscout.com/icon/free/png-64/patreon-2752105-2284922.png)](https://www.patreon.com/vl4dimyr)
-
-It is by no means required, but if you would like to support me head over to [my Patreon](https://www.patreon.com/vl4dimyr).

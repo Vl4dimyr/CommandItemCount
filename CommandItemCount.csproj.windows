@@ -1,14 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RoR2AssemblyPath>/data/games/steam/library/steamapps/common/Risk of Rain 2/Risk of Rain 2_Data/Managed</RoR2AssemblyPath>
-    <BepInExPath>$(HOME)/.config/r2modmanPlus-local/RiskOfRain2/profiles/CommandItemCount/BepInEx</BepInExPath>
+    <RoR2AssemblyPath>E:\Games\Steam\steamapps\common\Risk of Rain 2\Risk of Rain 2_Data\Managed</RoR2AssemblyPath>
+    <BepInExPath>$(AppData)\r2modmanPlus-local\RiskOfRain2\profiles\CommandItemCount\BepInEx</BepInExPath>
 
     <AssemblySearchPaths>
-      $(BepInExPath)/core;
-      $(BepInExPath)/plugins/RiskofThunder-R2API_Core/R2API.Core;
-      $(BepInExPath)/plugins/RiskofThunder-HookGenPatcher\MMHOOK;
-      $(BepInExPath)/plugins/Rune580-Risk_Of_Options/RiskOfOptions;
+      $(BepInExPath)\core;
+      $(BepInExPath)\plugins\tristanmcpherson-R2API\R2API;
+      $(BepInExPath)\plugins\RiskofThunder-HookGenPatcher\MMHOOK;
+      $(BepInExPath)\plugins\ontrigger-ItemStatsMod;
+      $(BepInExPath)\plugins\Rune580-Risk_Of_Options;
       $(RoR2AssemblyPath);
       $(AssemblySearchPaths);
     </AssemblySearchPaths>
@@ -30,7 +31,7 @@
       Assembly-CSharp;
       BepInEx;
       MMHOOK_Assembly-CSharp;
-      R2API.Core;
+      R2API;
       RoR2;
       UnityEngine;
       UnityEngine.CoreModule;
@@ -40,6 +41,7 @@
       UnityEngine.ImageConversionModule;
       Unity.TextMeshPro;
       com.unity.multiplayer-hlapi.Runtime;
+      ItemStats;
       RiskOfOptions;
     ">
       <Private>False</Private>
@@ -48,11 +50,11 @@
   </ItemGroup>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="bash &quot;$(ProjectDir)dev\pre_build.sh&quot; $(ProjectDir) $(SolutionName)" />
+    <Exec Command="powershell -executionpolicy remotesigned -File &quot;$(ProjectDir)dev\pre_build.ps1&quot; $(ProjectDir) $(SolutionName)" />
   </Target>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="bash &quot;$(ProjectDir)dev\post_build.sh&quot; $(TargetDir) $(TargetFileName) $(ProjectDir) $(SolutionName)" />
+    <Exec Command="powershell -executionpolicy remotesigned -File &quot;$(ProjectDir)dev\post_build.ps1&quot; $(TargetDir) $(TargetFileName) $(ProjectDir) $(SolutionName)" />
   </Target>
 
 </Project>

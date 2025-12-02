@@ -12,7 +12,6 @@ namespace CommandItemCount
     public enum Size { Small, Medium, Large }
 
     [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
-    [BepInDependency("ontrigger-ItemStatsMod-2.2.1", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [BepInPlugin("de.userstorm.commanditemcount", "CommandItemCount", "{VERSION}")]
     [NetworkCompatibility(CompatibilityLevel.NoNeedForSync, VersionStrictness.DifferentModVersionsAreOk)]
@@ -138,23 +137,12 @@ namespace CommandItemCount
             EquipmentDef equipmentDef = EquipmentCatalog.GetEquipmentDef(pickupDefinition.equipmentIndex);
             bool isItem = itemDefinition != null;
 
-            TooltipContent content = new TooltipContent();
-
-            content.titleColor = pickupDefinition.darkColor;
-            content.titleToken = isItem ? itemDefinition.nameToken : equipmentDef.nameToken;
-            content.bodyToken = isItem ? itemDefinition.descriptionToken : equipmentDef.descriptionToken;
-
-            if (isItem && ItemStatsMod.enabled)
+            TooltipContent content = new TooltipContent
             {
-                CharacterMaster master = PlayerCharacterMasterController.instances[0].master;
-
-                string stats = ItemStatsMod.GetStats(itemDefinition.itemIndex, count, master);
-
-                if (stats != null)
-                {
-                    content.overrideBodyText = $"{Language.GetString(content.bodyToken)}{stats}";
-                }
-            }
+                titleColor = pickupDefinition.darkColor,
+                titleToken = isItem ? itemDefinition.nameToken : equipmentDef.nameToken,
+                bodyToken = isItem ? itemDefinition.descriptionToken : equipmentDef.descriptionToken
+            };
 
             TooltipProvider tooltipProvider = parent.gameObject.AddComponent<TooltipProvider>();
 
@@ -182,9 +170,9 @@ namespace CommandItemCount
             for (int i = 0; i < options.Length; i++)
             {
                 Transform parent = elements[i].transform;
-                PickupDef pickupDefinition = PickupCatalog.GetPickupDef(options[i].pickupIndex);
+                PickupDef pickupDefinition = PickupCatalog.GetPickupDef(options[i].pickup.pickupIndex);
                 ItemIndex itemIndex = pickupDefinition.itemIndex;
-                int itemCount = !itemIndex.Equals(ItemIndex.None) ? inventory.GetItemCount(itemIndex) : 0;
+                int itemCount = !itemIndex.Equals(ItemIndex.None) ? inventory.GetItemCountEffective(itemIndex) : 0;
 
                 if (pickupDefinition.equipmentIndex.Equals(EquipmentIndex.None))
                 {

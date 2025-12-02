@@ -5,17 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.1] - 2025-12-02
+### Fixed
+- Compatibility with Alloyed Collective update
+
+### Removed
+- Support for ItemStatsMod (deprecated)
+- Patreon
+
 ## [1.5.0] - 2022-04-19
 ### Added
--  Mod icon for Risk Of Options
+- Mod icon for Risk Of Options
 
 ## [1.4.0] - 2022-04-18
 ### Added
--  [Risk Of Options](https://thunderstore.io/package/Rune580/Risk_Of_Options/) as optional dependency
+- [Risk Of Options](https://thunderstore.io/package/Rune580/Risk_Of_Options/) as optional dependency
 
 ## [1.3.3] - 2022-04-12
 ### Fixed
--  Mod did not work with DLC update
+- Mod did not work with DLC update
 
 ## [1.3.2] - 2020-09-14
 ### Fixed
